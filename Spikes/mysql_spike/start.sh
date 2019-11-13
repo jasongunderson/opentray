@@ -1,1 +1,0 @@
-php Laravel/artisan serve

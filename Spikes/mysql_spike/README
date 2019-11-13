@@ -1,3 +1,0 @@
-The MySQL folder contains a sample database.
-Running start.sh will run the laravel server on port 8000.
-Navigating to localhost:8000/mysql in a browser will display some data from a mysql database.
