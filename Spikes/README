@@ -1,0 +1,2 @@
+All MySQL tests are done with a user name 'root' that has the password 'password'.
+The test page for each spike is at 'localhost:8000/mysql'.
