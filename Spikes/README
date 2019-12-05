@@ -1,2 +1,4 @@
-All MySQL tests are done with a user name 'root' that has the password 'password'.
-The test page for each spike is at 'localhost:8000/mysql'.
+MySQL Spikes:
+    All MySQL tests are done with a user name 'root' that has the password 'password'.
+    Run build_database.sql file that's in this folder to create the test database.
+    The test page for each spike is at 'localhost:8000/mysql'.
