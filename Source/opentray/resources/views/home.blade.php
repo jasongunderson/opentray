@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <div class="container text-center">
+    <div class="container text-center" dusk="test">
         <div class="row">
             <div class="col-6">
                 <img src="images/test.png">
