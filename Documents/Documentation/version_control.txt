@@ -1,4 +1,0 @@
-The repo is hosted at https://github.com/jasongunderson/opentray
-If you're just starting you need to clone the repo, you can do this with "git clone https://github.com/jasongunderson/opentray" You will be promted for your username and password.
-To pull from the repo run "git pull https://github.com/jasongunderson/opentray" You will be promted for your username and password.
-Before pushing to the repo all tests must pass.
