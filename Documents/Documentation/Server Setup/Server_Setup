@@ -1,0 +1,66 @@
+Install:
+sudo apt install git
+->Apache2:
+sudo apt-get install apache2
+
+PHP: (missing PHP MBstring, 
+sudo apt-get install php
+sudo apt-get install php-ctype
+sudo apt-get install php-pdo
+sudo apt-get install php-tokenizer
+sudo apt-get install php-mbstring
+sudo apt-get install php-zip
+
+MySQL:
+sudo apt-get install mysql-server
+
+Composer:(program composer.phar rename and move to /usr/local/bin/composer. This will make it globaly accessiable command 'composer'.
+might have to change permisions <sudo chmod 774 composer>)
+
+sudo mv composer.phar /usr/local/bin/composer
+sudo cp composer.phar /usr/local/bin/composer
+cd /usr/local/bin/
+sudo chmod 774 composer
+sudo chown user composer
+
+Laravel:
+composer global require laravel/installer
+
+
+CREATING PROJECT:
+composer create-project --prefer-dist laravel/laravel opentray
+
+
+
+HOSTING WITH APACHE2:
+cd /etc/apache2/sites-available
+sudo vim laravel.conf
+
+###################################
+ <VirtualHost *:80>
+    ServerAdmin admin@example.com
+    ServerName opentray.com
+    ServerAlias www.opentray.com
+    DocumentRoot /home/user/Documents/opentray/public
+ 
+    <Directory /home/user/Documents/opentray/>
+            Options Indexes FollowSymLinks MultiViews
+            AllowOverride All
+            Order allow,deny
+            allow from all
+            Require all granted
+    </Directory>
+ 
+    LogLevel debug
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+###################################
+sudo a2dissite 000-default.conf
+sudo a2ensite laravel.conf
+sudo a2enmod rewrite
+sudo systemctl reload apache2
+sudo service apache2 restart
+
+
