@@ -1,5 +1,0 @@
-Unit testing is done with phpunit.
-All functions must have a test.
-Unit tests are located in Source/opentray/tests/Unit.
-Unit tests can be created using "php artisan make:test UserTest --unit"
-Documentation can be found at https://laravel.com/docs/5.8/testing
