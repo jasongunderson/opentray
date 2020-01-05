@@ -1,0 +1,5 @@
+System testing is done with Dusk.
+You'll need to install the package "chromium-chromedriver"
+All interactable elements (buttons, textboxes, etc) must have a dusk tag, use all lowercase for names, ie "<button dusk="submit_button">Submit</button>".
+Tests can be run using "php artisan dusk"
+Documentation can be found at https://laravel.com/docs/5.8/dusk

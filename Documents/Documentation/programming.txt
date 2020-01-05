@@ -1,0 +1,1 @@
+NEVER use raw php or sql queries unless they're part of a test.
