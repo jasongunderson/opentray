@@ -1,0 +1,27 @@
+********************************************************
+* Commands for setting up MySQL database
+********************************************************
+**************************
+* Configure MySQL
+**************************
+sudo mysql_secure_installation
+user:root
+password:password
+
+**************************
+* Configuring super user
+**************************
+CREATE USER 'laravel'@'localhost' IDENTIFIED BY 'LaravelPassword1$';
+
+GRANT ALL PRIVILEGES ON *.* TO 'laravel'@'localhost' WITH GRANT OPTION;
+
+**************************
+* Remove MySQL server
+**************************
+
+sudo apt-get remove --purge mysql-server mysql-client mysql-common -y
+sudo apt-get autoremove -y
+sudo apt-get autoclean
+rm -rf /etc/mysql
+
+

@@ -13,7 +13,7 @@
 			<p class="header_button">Login</p>
 		</div>
 		<div id="mainw_window">
-			@yield('contenet')
+			@yield('content')
 		</div>
 	</div>
 
