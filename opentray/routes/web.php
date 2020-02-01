@@ -10,32 +10,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
+
 Route::get('/', function () {
     return view('home');
 });
-*/
-/*
-Route::get('/hello', function () {
-    return 'hello world';
+
+Route::get('/print', function () {
+    return view('print');
 });
-*/
 
-/*
-//Below will grabe whatever passed in after user and passes it into the function() passing dynamic values
-Route::get('/user/{id}', function($id){
-    return 'This is user '.$id;
+Route::get('/residents', function () {
+    return view('residents');
 });
-*/
-/*
-// pages.about is used to find a view inside a folder 'pages'
-Route::get('/about', function (){
-    return view('pages.about');
+
+Route::get('/staff', function () {
+    return view('staff');
 });
-*/
 
-Route::get('/', 'PagesController@home');
-
-Route::get('/index', 'PagesController@index');
-
-Route::get('/about', 'PagesController@about');
+Route::get('/UpdateResident', 'Controller@updateResident');

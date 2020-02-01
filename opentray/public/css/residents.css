@@ -1,0 +1,88 @@
+
+a {
+	text-decoration-line: none;
+	color: black;
+}
+
+#mainContainer {
+	max-width: 800px;
+	margin: auto;
+	/*border-width: 3px;
+	border-style: solid;*/
+	border-color: #cccccc;
+	padding: 0px;
+	height: 600px;
+}
+
+#header {
+	background-color: #515151;
+	margin: 0px;
+}
+
+#main_window {
+	border-style: solid;
+	border-color: #515151;
+	border-width: 2px;
+	display: flex;
+	height: 80%;
+	/*justify-content: center;*/
+	/*align-content: space-between;*/
+	flex-direction: row;
+}
+
+.header_button{
+	color: white;
+	padding: 10px;
+	margin: 0px;
+	text-align: right;
+	background-color: #515151;
+}
+
+.header_button:hover{
+	background-color: #616161;
+}
+
+#container {
+	margin: 40px;
+	width: 40%;
+	height: 170px;
+	float: left;
+	text-align: center;
+	/*display: flex;*/
+	/*flex-direction: column;*/
+	/*float:left;*/
+}
+
+.avatar {
+	/*width: 40%;*/
+	margin: 5px;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+
+}
+
+#resident_search {
+	width: 100%;
+}
+
+#resident_info {
+	text-align: left;
+}
+#resident_info > label {
+	margin: 2px;
+}
+
+#resident_info > input {
+	margin: 2px;
+	width: 100%;
+}
+
+#resident_info > button {
+	margin: 2px;
+	width: 105%;
+}
+
+input[type=submit], input[type=reset] {
+	width: 105% !important;
+}
