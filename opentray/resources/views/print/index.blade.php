@@ -4,9 +4,9 @@
 <div class="row">
     <div class="col-sm-12">
         <h1 class="display-3">Print
-        <a href="{{ route('print/cards') }}" class="btn btn-primary">Print All</a>
-        <a class="btn btn-primary">Print Queue</a>
-        <a class="btn btn-primary">Reset</a>
+            <a href="{{ route('print/cards') }}" class="btn btn-primary">Print All</a>
+            <a class="btn btn-primary">Print Queue</a>
+            <a class="btn btn-primary">Reset</a>
         </h1>
         <table class="table table-striped">
             <thead>
@@ -36,7 +36,7 @@
                     <td>{{$resident->allergies}}</td>
                     <td>{{$resident->comment}}</td>
                     <td>
-                        <a class="btn btn-primary">Queue</a>
+                        <a href="{{ route('print/addqueue', $resident->id)}}" class="btn btn-primary">Queue</a>
                     </td>
                 </tr>
                 @endforeach

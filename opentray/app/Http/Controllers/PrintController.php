@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Resident;
+use Session;
 use Illuminate\Http\Request;
 
 class PrintController extends Controller
@@ -23,9 +24,19 @@ class PrintController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function cards($queue)
+    public function cards()
     {
-        $residents = Resident::all()->where('active', true);
-        return view('print/cards', compact('residents'));
+        return view('print/cards');
+    }
+
+    public function addqueue($id)
+    {
+        Session::put('test', $id);
+        return redirect('/print');
+    }
+
+    public function test()
+    {
+        return view('test');
     }
 }
