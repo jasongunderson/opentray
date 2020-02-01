@@ -6,16 +6,8 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use DB;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    public function updateResident()
-    {
-        DB::table('residents')->where('id', 1)->update(['fname' => 'John']);
-        //$residents = DB::table('residents')->where('active', 1)->orderby('lname')->get();
-        return redirect('residents');
-    }
 }

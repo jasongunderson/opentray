@@ -12,19 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
-Route::get('/print', function () {
-    return view('print');
-});
+Route::resource('residents', 'ResidentController');
 
-Route::get('/residents', function () {
-    return view('residents');
-});
+Route::get('print', 'PrintController@index');
 
-Route::get('/staff', function () {
-    return view('staff');
-});
-
-Route::get('/UpdateResident', 'Controller@updateResident');
+Route::get('print/cards', 'PrintController@cards')->name('print/cards');
