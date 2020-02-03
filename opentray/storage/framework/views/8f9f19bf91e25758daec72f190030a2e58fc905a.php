@@ -1,0 +1,1 @@
+<?php echo e(dd(session()->all())); ?><?php /**PATH /home/jon/Documents/CS4900/opentray/opentray/resources/views/test.blade.php ENDPATH**/ ?>
