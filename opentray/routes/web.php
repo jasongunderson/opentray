@@ -13,11 +13,11 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 
 Route::resource('residents', 'ResidentController');
 
-Route::get('print', 'PrintController@index');
+Route::get('print', 'PrintController@index')->name('print');
 
 Route::get('print/addqueue/{id}', 'PrintController@addqueue')->name('print/addqueue');
 
