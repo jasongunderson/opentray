@@ -1,8 +1,11 @@
 @extends('base')
+
 @section('main')
 <div class="row">
-    <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">Update a Resident</h1>
+    <div class="col-sm-12">
+        <h1 class="display-3">Update Resident
+            <a href="{{ route('residents.index') }}" class="btn btn-primary">Back</a>
+        </h1>
 
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -12,48 +15,41 @@
                 @endforeach
             </ul>
         </div>
-        <br />
         @endif
         <form method="post" action="{{ route('residents.update', $resident->id) }}">
             @method('PATCH')
             @csrf
-            <div class="form-group">
-                <label for="fname">First Name:</label>
-                <input type="text" class="form-control" name="fname" value={{ $resident->fname }} />
+            <div class="form-inline row">
+                <label for="fname" class="col-1">First Name:</label>
+                <input type="text" class="form-control col-5" name="fname" value={{ $resident->fname }} />
+                <label for="lname" class="col-1">Last Name:</label>
+                <input type="text" class="form-control col-5" name="lname" value={{ $resident->lname }} />
             </div>
-            <div class="form-group">
-                <label for="lname">Last Name:</label>
-                <input type="text" class="form-control" name="lname" value={{ $resident->lname }} />
+            <br>
+            <div class="form-inline row">
+                <label for="facility" class="col-1">Facility:</label>
+                <input type="text" class="form-control col-3" name="facilty" value={{ $resident->facility }} />
+                <label for="room" class="col-1">Room:</label>
+                <input type="text" class="form-control col-3" name="room" value={{ $resident->room }} />
+                <label for="dine" class="col-1">Dining Area:</label>
+                <input type="text" class="form-control col-3" name="dine" value={{ $resident->dine }} />
             </div>
-            <div class="form-group">
-                <label for="facility">Facility:</label>
-                <input type="text" class="form-control" name="facilty" value={{ $resident->facility }} />
+            <br>
+            <div class="form-inline row">
+                <label for="likes" class="col-1">Likes:</label>
+                <input type="text" class="form-control col-3" name="likes" value={{ $resident->likes }} />
+                <label for="dislikes" class="col-1">Dislikes:</label>
+                <input type="text" class="form-control col-3" name="dislikes" value={{ $resident->dislikes }} />
+                <label for="allergies" class="col-1">Allergies:</label>
+                <input type="text" class="form-control col-3" name="allergies" value={{ $resident->allergies }} />
             </div>
-            <div class="form-group">
-                <label for="room">Room:</label>
-                <input type="text" class="form-control" name="room" value={{ $resident->room }} />
+            <br>
+            <div class="form-inline row">
+                <label for="comment col-1" class="col-1">Comments:</label>
+                <input type="text" class="form-control col-11" name="comment" value={{ $resident->comment }} />
             </div>
-            <div class="form-group">
-                <label for="dine">Dining Area:</label>
-                <input type="text" class="form-control" name="dine" value={{ $resident->dine }} />
-            </div>
-            <div class="form-group">
-                <label for="likes">Likes:</label>
-                <input type="text" class="form-control" name="likes" value={{ $resident->likes }} />
-            </div>
-            <div class="form-group">
-                <label for="dislikes">Dislikes:</label>
-                <input type="text" class="form-control" name="dislikes" value={{ $resident->dislikes }} />
-            </div>
-            <div class="form-group">
-                <label for="allergies">Allergies:</label>
-                <input type="text" class="form-control" name="allergies" value={{ $resident->allergies }} />
-            </div>
-            <div class="form-group">
-                <label for="comment">Comments:</label>
-                <input type="text" class="form-control" name="comment" value={{ $resident->comment }} />
-            </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <br>
+            <button type="submit" class="btn btn-primary col">Update</button>
         </form>
     </div>
 </div>

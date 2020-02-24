@@ -1,11 +1,12 @@
 @extends('base')
 
 @section('main')
-<div class="row justify-content-md-center">
+<div class="row">
     <div class="col-sm-12">
         <h1 class="display-3">Add Resident
             <a href="{{ route('residents.index') }}" class="btn btn-primary">Back</a>
         </h1>
+
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -13,47 +14,42 @@
                 <li>{{ $error }}</li>
                 @endforeach
             </ul>
-        </div><br />
+        </div>
         @endif
         <form method="post" action="{{ route('residents.store') }}">
+
             @csrf
-            <div class="form-group">
-                <label for="fname">First Name:</label>
-                <input type="text" class="form-control" name="fname" />
+            <div class="form-inline row">
+                <label for="fname" class="col-1">First Name:</label> 
+                <input type="text" class="form-control col-5" name="fname" />
+                <label for="lname" class="col-1">Last Name:</label>
+                <input type="text" class="form-control col-5" name="lname" />
             </div>
-            <div class="form-group">
-                <label for="lname">Last Name:</label>
-                <input type="text" class="form-control" name="lname" />
+            <br>
+            <div class="form-inline row">
+                <label for="facility" class="col-1">Facility:</label>
+                <input type="text" class="form-control col-3" name="facility" />
+                <label for="room" class="col-1">Room:</label>
+                <input type="text" class="form-control col-3" name="room" />
+                <label for="dine" class="col-1">Dining Area:</label>
+                <input type="text" class="form-control col-3" name="dine" />
             </div>
-            <div class="form-group">
-                <label for="facility">Facility:</label>
-                <input type="text" class="form-control" name="facility" />
+            <br>
+            <div class="form-inline row">
+                <label for="likes" class="col-1">Likes:</label>
+                <input type="text" class="form-control col-3" name="likes" />
+                <label for="dislikes" class="col-1">Dislikes:</label>
+                <input type="text" class="form-control col-3" name="dislikes" />
+                <label for="allergies" class="col-1">Allergies:</label>
+                <input type="text" class="form-control col-3" name="allergies" />
             </div>
-            <div class="form-group">
-                <label for="room">Room:</label>
-                <input type="text" class="form-control" name="room" />
+            <br>
+            <div class="form-inline row">
+                <label for="comment" class="col-1">Comments:</label>
+                <input type="text" class="form-control col-11" name="comment" />
             </div>
-            <div class="form-group">
-                <label for="dine">Dining Area:</label>
-                <input type="text" class="form-control" name="dine" />
-            </div>
-            <div class="form-group">
-                <label for="likes">Likes:</label>
-                <input type="text" class="form-control" name="likes" />
-            </div>
-            <div class="form-group">
-                <label for="dislikes">Dislikes:</label>
-                <input type="text" class="form-control" name="dislikes" />
-            </div>
-            <div class="form-group">
-                <label for="allergies">Allergies:</label>
-                <input type="text" class="form-control" name="allergies" />
-            </div>
-            <div class="form-group">
-                <label for="comment">Comments:</label>
-                <input type="text" class="form-control" name="comment" />
-            </div>
-            <button type="submit" class="btn btn-primary">Add Resident</button>
+            <br>
+            <button type="submit" class="btn btn-primary col">Add Resident</button>
         </form>
     </div>
 </div>

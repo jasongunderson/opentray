@@ -24,19 +24,14 @@ class PrintController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function cards()
+    public function cards(Request $request)
     {
-        return view('print/cards');
-    }
-
-    public function addqueue($id)
-    {
-        Session::put('test', $id);
-        return redirect('/print');
-    }
-
-    public function test()
-    {
-        return view('test');
+        $queue = $request->get('queue');
+        if (empty($queue)) {
+            $residents = Resident::all()->where('active', true);
+        } else {
+            $residents = Resident::all()->where('active', true)->whereIn('id', explode(",", $queue));
+        }
+        return view('print/cards', compact('residents'));
     }
 }
