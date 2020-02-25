@@ -17,7 +17,7 @@
                     <a href="{{ route('residents.index') }}" class="col btn btn-outline-light">
                         Residents
                     </a>
-                    <a href="{{ route('index') }}" class="col btn btn-outline-light">
+                    <a href="{{ route('staff.index') }}" class="col btn btn-outline-light">
                         Staff
                     </a>
                     <a href="{{ route('print') }}" class="col btn btn-outline-light">

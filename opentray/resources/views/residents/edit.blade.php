@@ -6,7 +6,6 @@
         <h1 class="display-3">Update Resident
             <a href="{{ route('residents.index') }}" class="btn btn-primary">Back</a>
         </h1>
-
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

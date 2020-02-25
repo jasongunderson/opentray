@@ -17,7 +17,7 @@
                     <a href="<?php echo e(route('residents.index')); ?>" class="col btn btn-outline-light">
                         Residents
                     </a>
-                    <a href="<?php echo e(route('index')); ?>" class="col btn btn-outline-light">
+                    <a href="<?php echo e(route('staff.index')); ?>" class="col btn btn-outline-light">
                         Staff
                     </a>
                     <a href="<?php echo e(route('print')); ?>" class="col btn btn-outline-light">

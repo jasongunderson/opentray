@@ -50,7 +50,7 @@ class ResidentController extends Controller
             'active' => true
         ]);
         $resident->save();
-        return redirect('/residents')->with('success', 'Resident saved!');
+        return redirect('/residents')->with('success', 'Resident Saved');
     }
 
     /**
@@ -111,6 +111,6 @@ class ResidentController extends Controller
         $resident->active = false;
         $resident->save();
 
-        return redirect('/residents')->with('success', 'Resident deleted!');
+        return redirect('/residents')->with('success', 'Resident Deactivated');
     }
 }
