@@ -14,13 +14,16 @@
             </div>
             <div class="col-5" style="margin: auto;">
                 <div class="row">
-                    <a href="{{ route('residents.index') }}" class="col btn btn-outline-light">
+                    <a href="{{ route('residents.index') }}" class="col btn btn-outline-light" dusk="button_residents">
                         Residents
                     </a>
-                    <a href="{{ route('staff.index') }}" class="col btn btn-outline-light">
+                    <a href="{{ route('staff.index') }}" class="col btn btn-outline-light" dusk="button_staff">
                         Staff
                     </a>
-                    <a href="{{ route('print') }}" class="col btn btn-outline-light">
+                    <a href="{{ route('facilities.index') }}" class="col btn btn-outline-light" dusk="button_facilities">
+                        Facilities
+                    </a>
+                    <a href="{{ route('print') }}" class="col btn btn-outline-light" dusk="button_print">
                         Print
                     </a>
                 </div>
@@ -30,7 +33,7 @@
             <div class="col-2" style="margin: auto; text-align: right">
 
             </div>
-            <a href="{{ route('index') }}" class="col-1 btn btn-outline-light" style="margin: auto;">
+            <a href="{{ route('index') }}" class="col-1 btn btn-outline-light" style="margin: auto;" dusk="button_signout">
                 Sign Out
             </a>
             <div class="col-1">

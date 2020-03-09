@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-sm-12">
     <h1 class="display-3">Residents
-      <a href="{{ route('residents.create') }}" class="btn btn-primary">Add Resident</a>
+      <a href="{{ route('residents.create') }}" class="btn btn-primary" dusk="button_create">Add Resident</a>
     </h1>
     <table class="table table-striped">
       <thead>
@@ -34,13 +34,13 @@
           <td>{{$resident->allergies}}</td>
           <td>{{$resident->comment}}</td>
           <td>
-            <a href="{{ route('residents.edit',$resident->id)}}" class="btn btn-primary">Edit</a>
+            <a href="{{ route('residents.edit',$resident->id)}}" class="btn btn-primary" dusk="button_edit">Edit</a>
           </td>
           <td>
             <form action="{{ route('residents.destroy', $resident->id)}}" method="post">
               @csrf
               @method('DELETE')
-              <button class="btn btn-danger" type="submit">Delete</button>
+              <button class="btn btn-danger" type="submit" dusk="button_delete">Delete</button>
             </form>
           </td>
         </tr>

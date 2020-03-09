@@ -37,6 +37,13 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'fname' => 'required|max:255',
+            'lname' => 'required|max:255',
+            'facility' => 'required|integer',
+            'permission' => 'required|integer'
+        ]);
+
         $staff = new Staff([
             'facility' => $request->get('facility'),
             'fname' => $request->get('fname'),
@@ -80,6 +87,13 @@ class StaffController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'fname' => 'required|max:255',
+            'lname' => 'required|max:255',
+            'facility' => 'required|integer',
+            'permission' => 'required|integer'
+        ]);
+
         $staff = Staff::find($id);
         $staff->facility = $request->get('facility');
         $staff->fname =  $request->get('fname');

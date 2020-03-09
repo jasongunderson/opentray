@@ -28,13 +28,13 @@
     <div class="col-sm-12">
         <form method="get" action="{{ route('print/cards') }}">
             <h1 class="display-3">Print
-                <a href="{{ route('print/cards') }}" class="btn btn-primary">Print All</a>
+                <a href="{{ route('print/cards') }}" class="btn btn-primary" dusk="button_print_all">Print All</a>
                 <div class="form-group d-none">
                     <label for="queue">Queue</label>
                     <input type="text" class="form-control" name="queue" id="formQueue" required />
                 </div>
-                <button type="submit" class="btn btn-primary" id="queueButton" disabled>Print Queue</button>
-                <a href="{{ route('print') }}" class="btn btn-primary">Reset</a>
+                <button type="submit" class="btn btn-primary" id="queueButton" dusk="button_print_queue" disabled>Print Queue</button>
+                <a href="{{ route('print') }}" class="btn btn-primary" dusk="button_reset">Reset</a>
             </h1>
         </form>
         <table class="table table-striped">
@@ -65,10 +65,10 @@
                     <td>{{$resident->allergies}}</td>
                     <td>{{$resident->comment}}</td>
                     <td>
-                        <a class="btn btn-primary" onclick=addQueue("{{$resident->id}}")>Queue</a>
+                        <a class="btn btn-primary" onclick=addQueue("{{$resident->id}}") dusk="button_queue">Queue</a>
                     </td>
                     <td>
-                        <a class="btn btn-primary" onclick=removeQueue("{{$resident->id}}")>Unqueue</a>
+                        <a class="btn btn-primary" onclick=removeQueue("{{$resident->id}}") dusk="button_unqueue">Unqueue</a>
                     </td>
                 </tr>
                 @endforeach

@@ -19,11 +19,11 @@ class CreateResidentsTable extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('room');
-            $table->string('dine');
-            $table->string('likes');
-            $table->string('dislikes');
-            $table->string('allergies');
-            $table->string('comment');
+            $table->string('dine')->nullable();
+            $table->string('likes')->nullable();
+            $table->string('dislikes')->nullable();
+            $table->string('allergies')->nullable();
+            $table->string('comment')->nullable();
             $table->boolean('active');
             $table->timestamps();
         });

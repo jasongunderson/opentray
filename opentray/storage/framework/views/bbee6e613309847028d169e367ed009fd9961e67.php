@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-sm-12">
     <h1 class="display-3">Residents
-      <a href="<?php echo e(route('residents.create')); ?>" class="btn btn-primary">Add Resident</a>
+      <a href="<?php echo e(route('residents.create')); ?>" class="btn btn-primary" dusk="button_create">Add Resident</a>
     </h1>
     <table class="table table-striped">
       <thead>
@@ -32,13 +32,13 @@
           <td><?php echo e($resident->allergies); ?></td>
           <td><?php echo e($resident->comment); ?></td>
           <td>
-            <a href="<?php echo e(route('residents.edit',$resident->id)); ?>" class="btn btn-primary">Edit</a>
+            <a href="<?php echo e(route('residents.edit',$resident->id)); ?>" class="btn btn-primary" dusk="button_edit">Edit</a>
           </td>
           <td>
             <form action="<?php echo e(route('residents.destroy', $resident->id)); ?>" method="post">
               <?php echo csrf_field(); ?>
               <?php echo method_field('DELETE'); ?>
-              <button class="btn btn-danger" type="submit">Delete</button>
+              <button class="btn btn-danger" type="submit" dusk="button_delete">Delete</button>
             </form>
           </td>
         </tr>

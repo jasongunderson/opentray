@@ -37,6 +37,18 @@ class ResidentController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'facility' => 'required|integer',
+            'fname' => 'required|max:255',
+            'lname' => 'required|max:255',
+            'room' => 'required|max:255',
+            'dine' => 'max:255',
+            'likes' => 'max:255',
+            'dislikes' => 'max:255',
+            'allergies' => 'max:255',
+            'comment' => 'max:255'
+        ]);
+
         $resident = new Resident([
             'facility' => $request->get('facility'),
             'fname' => $request->get('fname'),
@@ -85,6 +97,18 @@ class ResidentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'facility' => 'required|integer',
+            'fname' => 'required|max:255',
+            'lname' => 'required|max:255',
+            'room' => 'required|max:255',
+            'dine' => 'max:255',
+            'likes' => 'max:255',
+            'dislikes' => 'max:255',
+            'allergies' => 'max:255',
+            'comment' => 'max:255'
+        ]);
+
         $resident = Resident::find($id);
         $resident->fname =  $request->get('fname');
         $resident->lname = $request->get('lname');
@@ -96,7 +120,7 @@ class ResidentController extends Controller
         $resident->comment = $request->get('comment');
         $resident->save();
 
-        return redirect('/residents')->with('success', 'Resident updated!');
+        return redirect('/residents')->with('success', 'Resident Updated');
     }
 
     /**
