@@ -26,13 +26,13 @@
     <div class="col-sm-12">
         <form method="get" action="<?php echo e(route('print/cards')); ?>">
             <h1 class="display-3">Print
-                <a href="<?php echo e(route('print/cards')); ?>" class="btn btn-primary">Print All</a>
+                <a href="<?php echo e(route('print/cards')); ?>" class="btn btn-primary" dusk="button_print_all">Print All</a>
                 <div class="form-group d-none">
                     <label for="queue">Queue</label>
                     <input type="text" class="form-control" name="queue" id="formQueue" required />
                 </div>
-                <button type="submit" class="btn btn-primary" id="queueButton" disabled>Print Queue</button>
-                <a href="<?php echo e(route('print')); ?>" class="btn btn-primary">Reset</a>
+                <button type="submit" class="btn btn-primary" id="queueButton" dusk="button_print_queue" disabled>Print Queue</button>
+                <a href="<?php echo e(route('print')); ?>" class="btn btn-primary" dusk="button_reset">Reset</a>
             </h1>
         </form>
         <table class="table table-striped">
@@ -63,10 +63,10 @@
                     <td><?php echo e($resident->allergies); ?></td>
                     <td><?php echo e($resident->comment); ?></td>
                     <td>
-                        <a class="btn btn-primary" onclick=addQueue("<?php echo e($resident->id); ?>")>Queue</a>
+                        <a class="btn btn-primary" onclick=addQueue("<?php echo e($resident->id); ?>") dusk="button_queue">Queue</a>
                     </td>
                     <td>
-                        <a class="btn btn-primary" onclick=removeQueue("<?php echo e($resident->id); ?>")>Unqueue</a>
+                        <a class="btn btn-primary" onclick=removeQueue("<?php echo e($resident->id); ?>") dusk="button_unqueue">Unqueue</a>
                     </td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

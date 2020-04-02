@@ -19,6 +19,8 @@ Route::resource('residents', 'ResidentController');
 
 Route::resource('staff', 'StaffController');
 
+Route::resource('foods', 'FoodController');
+
 Route::resource('facilities', 'FacilityController');
 
 Route::get('print', 'PrintController@index')->name('print');

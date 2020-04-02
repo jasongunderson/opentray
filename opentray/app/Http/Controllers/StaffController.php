@@ -14,7 +14,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-        $staff = Staff::all();
+        $staff = Staff::all()->where('active', true);
 
         return view('staff.index', compact('staff'));
     }
@@ -49,7 +49,7 @@ class StaffController extends Controller
             'fname' => $request->get('fname'),
             'lname' => $request->get('lname'),
             'permission' => $request->get('permission'),
-            'active' => true,
+            'active' => true
         ]);
         $staff->save();
         return redirect('/staff')->with('success', 'Employee Saved');

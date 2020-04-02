@@ -20,6 +20,9 @@
                     <a href="<?php echo e(route('staff.index')); ?>" class="col btn btn-outline-light" dusk="button_staff">
                         Staff
                     </a>
+                    <a href="<?php echo e(route('foods.index')); ?>" class="col btn btn-outline-light" dusk="button_foods">
+                        Foods
+                    </a>
                     <a href="<?php echo e(route('facilities.index')); ?>" class="col btn btn-outline-light" dusk="button_facilities">
                         Facilities
                     </a>

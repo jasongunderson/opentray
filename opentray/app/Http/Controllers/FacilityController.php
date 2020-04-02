@@ -14,7 +14,7 @@ class FacilityController extends Controller
      */
     public function index()
     {
-        $facilities = Facility::all();
+        $facilities = Facility::all()->where('active', true);
 
         return view('facilities.index', compact('facilities'));
     }

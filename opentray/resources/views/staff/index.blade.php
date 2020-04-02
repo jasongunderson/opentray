@@ -24,7 +24,7 @@
                     <td>{{$employee->facility}}</td>
                     <td>{{$employee->permission}}</td>
                     <td>
-                        <a href="{{ route('staff.edit',$employee->id)}}" class="btn btn-primary" dusk="button_staff_edit">Edit</a>
+                        <a href="{{ route('staff.edit',$employee->id)}}" class="btn btn-primary" dusk="button_edit">Edit</a>
                     </td>
                     <td>
                         <form action="{{ route('staff.destroy', $employee->id)}}" method="post">
