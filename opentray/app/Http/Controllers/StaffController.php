@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Staff;
 
@@ -40,7 +41,9 @@ class StaffController extends Controller
         $request->validate([
             'fname' => 'required|max:255',
             'lname' => 'required|max:255',
+            'uname' => 'required|max:255|unique:staff',
             'facility' => 'required|integer',
+            'password' => 'required|max:255|string',
             'permission' => 'required|integer'
         ]);
 
@@ -48,6 +51,8 @@ class StaffController extends Controller
             'facility' => $request->get('facility'),
             'fname' => $request->get('fname'),
             'lname' => $request->get('lname'),
+            'uname' => $request->get('uname'),
+            'password' => Hash::make($request->get('password')),
             'permission' => $request->get('permission'),
             'active' => true
         ]);
@@ -90,6 +95,7 @@ class StaffController extends Controller
         $request->validate([
             'fname' => 'required|max:255',
             'lname' => 'required|max:255',
+            'uname' => 'required|max:255|unique:staff',
             'facility' => 'required|integer',
             'permission' => 'required|integer'
         ]);
@@ -98,6 +104,7 @@ class StaffController extends Controller
         $staff->facility = $request->get('facility');
         $staff->fname =  $request->get('fname');
         $staff->lname = $request->get('lname');
+        $staff->uname = $request->get('uname');
         $staff->permission = $request->get('permission');
         $staff->save();
 

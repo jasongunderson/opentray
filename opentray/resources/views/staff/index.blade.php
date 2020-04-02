@@ -11,6 +11,7 @@
                 <tr>
                     <td>ID</td>
                     <td>Name</td>
+                    <td>Username</td>
                     <td>Facilty</td>
                     <td>Permission</td>
                     <td colspan=2>Actions</td>
@@ -21,6 +22,7 @@
                 <tr>
                     <td>{{$employee->id}}</td>
                     <td>{{$employee->fname}} {{$employee->lname}}</td>
+                    <td>{{$employee->uname}}</td>
                     <td>{{$employee->facility}}</td>
                     <td>{{$employee->permission}}</td>
                     <td>

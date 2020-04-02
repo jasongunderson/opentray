@@ -26,3 +26,5 @@ Route::resource('facilities', 'FacilityController');
 Route::get('print', 'PrintController@index')->name('print');
 
 Route::get('print/cards', 'PrintController@cards')->name('print/cards');
+
+Route::get('auth', 'AuthController@auth')->name('auth');

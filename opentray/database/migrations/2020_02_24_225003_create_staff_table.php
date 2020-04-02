@@ -18,7 +18,9 @@ class CreateStaffTable extends Migration
             $table->integer('facility');
             $table->string('fname');
             $table->string('lname');
+            $table->string('uname');
             $table->integer('permission');
+            $table->string('password');
             $table->boolean('active');
             $table->timestamps();
         });

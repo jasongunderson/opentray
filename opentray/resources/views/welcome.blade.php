@@ -5,7 +5,7 @@
     <div class="col-sm-6">
         <h1 class="display-3">Sign In</h1>
         <div>
-            <form method="post" action="">
+            <form method="get" action="{{ route('auth') }}">
                 @csrf
                 <div class="form-group">
                     <label for="uname">Username:</label>

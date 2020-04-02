@@ -32,6 +32,11 @@
                 <input type="text" class="form-control col-5" name="permission" value="{{ $staff->permission }}" dusk="input_permission" />
             </div>
             <br>
+            <div class="form-inline row">
+                <label for="uname" class="col-1">Username:</label>
+                <input type="text" class="form-control col-5" name="uname" value="{{ $staff->uname }}" dusk="input_uname" />
+            </div>
+            <br>
             <button type="submit" class="btn btn-primary col" dusk="button_update">Update Employee</button>
         </form>
     </div>

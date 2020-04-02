@@ -10,6 +10,8 @@ class Staff extends Model
         'facility',
         'fname',
         'lname',
+        'uname',
+        'password',
         'permission',
         'active'       
     ];

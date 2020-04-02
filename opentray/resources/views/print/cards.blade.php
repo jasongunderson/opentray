@@ -3,7 +3,7 @@
 @section('main')
 <div class="row">
   <div class="col-sm-12">
-    <h1 class="display-3">Residents
+    <h1 class="display-3">Cards
       <a href="{{ route('print') }}" class="btn btn-primary" dusk="button_back">Back</a>
     </h1>
     <table class="table table-striped">

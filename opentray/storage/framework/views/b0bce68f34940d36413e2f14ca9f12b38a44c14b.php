@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-sm-12">
     <h1 class="display-3">Residents
-      <a href="<?php echo e(route('print')); ?>" class="btn btn-primary">Back</a>
+      <a href="<?php echo e(route('print')); ?>" class="btn btn-primary" dusk="button_back">Back</a>
     </h1>
     <table class="table table-striped">
       <thead>

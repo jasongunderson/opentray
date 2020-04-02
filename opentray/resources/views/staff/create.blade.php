@@ -32,6 +32,15 @@
                     <input type="text" class="form-control col-5" name="permission" value="{{old('permission')}}" dusk="input_permission" />
                 </div>
                 <br>
+                <div class="form-inline row">
+                    <label for="uname" class="col-1">Username:</label>
+                    <input type="text" class="form-control col-3" name="uname" value="{{old('uname')}}" dusk="input_uname" />
+                    <label for="password" class="col-1">Password:</label>
+                    <input type="password" class="form-control col-3" name="password" value="" dusk="input_password" />
+                    <label for="password_confirm" class="col-1">Confirm Password:</label>
+                    <input type="password" class="form-control col-3" name="password_confirm" value="" dusk="input_password_confirm" />
+                </div>
+                <br>
                 <button type="submit" class="btn btn-primary col" dusk="button_add">Add Employee</button>
             </form>
         </div>

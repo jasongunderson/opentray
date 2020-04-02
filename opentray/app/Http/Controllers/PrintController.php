@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Resident;
-use Session;
 use Illuminate\Http\Request;
 
 class PrintController extends Controller
