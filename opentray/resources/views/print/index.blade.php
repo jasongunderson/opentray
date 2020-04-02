@@ -65,10 +65,10 @@
                     <td>{{$resident->allergies}}</td>
                     <td>{{$resident->comment}}</td>
                     <td>
-                        <a class="btn btn-primary" onclick=addQueue("{{$resident->id}}") dusk="button_queue">Queue</a>
+                        <a class="btn btn-primary" onclick=addQueue("{{$resident->id}}") dusk="button_queue_{{$resident->id}}">Queue</a>
                     </td>
                     <td>
-                        <a class="btn btn-primary" onclick=removeQueue("{{$resident->id}}") dusk="button_unqueue">Unqueue</a>
+                        <a class="btn btn-primary" onclick=removeQueue("{{$resident->id}}") dusk="button_unqueue_{{$resident->id}}">Unqueue</a>
                     </td>
                 </tr>
                 @endforeach

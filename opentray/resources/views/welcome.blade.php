@@ -5,6 +5,15 @@
     <div class="col-sm-6">
         <h1 class="display-3">Sign In</h1>
         <div>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <form method="get" action="{{ route('auth') }}">
                 @csrf
                 <div class="form-group">

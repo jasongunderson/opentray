@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
-class AuthTest extends DuskTestCase
+class PermissionTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
@@ -20,7 +20,7 @@ class AuthTest extends DuskTestCase
                 ->visit('/')
                 ->assertSee('Sign In');
 
-            //$browser->screenshot('AuthTest');
+            //$browser->screenshot('PermissionTest');
         });
     }
 }

@@ -63,10 +63,10 @@
                     <td><?php echo e($resident->allergies); ?></td>
                     <td><?php echo e($resident->comment); ?></td>
                     <td>
-                        <a class="btn btn-primary" onclick=addQueue("<?php echo e($resident->id); ?>") dusk="button_queue">Queue</a>
+                        <a class="btn btn-primary" onclick=addQueue("<?php echo e($resident->id); ?>") dusk="button_queue_<?php echo e($resident->id); ?>">Queue</a>
                     </td>
                     <td>
-                        <a class="btn btn-primary" onclick=removeQueue("<?php echo e($resident->id); ?>") dusk="button_unqueue">Unqueue</a>
+                        <a class="btn btn-primary" onclick=removeQueue("<?php echo e($resident->id); ?>") dusk="button_unqueue_<?php echo e($resident->id); ?>">Unqueue</a>
                     </td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

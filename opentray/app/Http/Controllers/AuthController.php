@@ -15,17 +15,18 @@ class AuthController extends Controller
             'password' => 'required|max:255|string'
         ]);
 
-        $uname = $request->get('uname');
-        $password = $request->get('password');
-        $employee = Staff::all()->where('uname', $uname);
+        //$value = session()->pull('key', 'default');
 
-        if ($employee->isEmpty()) {
-            return redirect()->route('index');
+        $password = $request->get('password');
+        $employee = Staff::all()->where('uname', $request->get('uname'))->first();
+        if (!isset($employee)) {
+            return redirect()->route('index')->withErrors(["The user doesn't exist or the password is incorrect."]);
         } else {
-            if (Hash::check($password, $employee->get('password'))) {
+            if (Hash::check($password, $employee->password)) {
+                session(['permission' => $employee->permission]);
                 return redirect()->route('print');
             } else {
-                return redirect()->route('print');
+                return redirect()->route('index')->withErrors(["The user doesn't exist or the password is incorrect."]);
             }
         }
     }
