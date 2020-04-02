@@ -16,6 +16,7 @@ class AuthTest extends DuskTestCase
     public function testExample()
     {
         $this->browse(function (Browser $browser) {
+            $browser->visit('setPerm');
             $browser
                 ->visit('/')
                 ->assertSee('Sign In');

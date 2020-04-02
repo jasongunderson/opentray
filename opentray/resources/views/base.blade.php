@@ -34,11 +34,18 @@
             <div class="col-2">
             </div>
             <div class="col-2" style="margin: auto; text-align: right">
-
+                {{ session()->get('fname') }}
+                {{ session()->get('lname') }}
             </div>
+            @if (!strcmp(session()->get('permission', 'default'), 'default'))
             <a href="{{ route('index') }}" class="col-1 btn btn-outline-light" style="margin: auto;" dusk="button_signout">
+                Sign In
+            </a>
+            @else
+            <a href="{{ route('signout') }}" class="col-1 btn btn-outline-light" style="margin: auto;" dusk="button_signout">
                 Sign Out
             </a>
+            @endif
             <div class="col-1">
             </div>
         </div>

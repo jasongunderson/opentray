@@ -22,6 +22,7 @@ class ResidentTest extends DuskTestCase
     public function test()
     {
         $this->browse(function (Browser $browser) {
+            $browser->visit('setPerm');
             // Visit the home page and assert that they are at the home page.
             $browser
                 ->visit('/')

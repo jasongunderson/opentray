@@ -15,8 +15,6 @@ class AuthController extends Controller
             'password' => 'required|max:255|string'
         ]);
 
-        //$value = session()->pull('key', 'default');
-
         $password = $request->get('password');
         $employee = Staff::all()->where('uname', $request->get('uname'))->first();
         if (!isset($employee)) {
@@ -24,10 +22,23 @@ class AuthController extends Controller
         } else {
             if (Hash::check($password, $employee->password)) {
                 session(['permission' => $employee->permission]);
+                session(['fname' => $employee->fname]);
+                session(['lname' => $employee->lname]);
                 return redirect()->route('print');
             } else {
                 return redirect()->route('index')->withErrors(["The user doesn't exist or the password is incorrect."]);
             }
         }
+    }
+
+    public function signout()
+    {
+        session()->flush();
+        return redirect('/');
+    }
+
+    public function setPerm()
+    {
+        session(['permission' => 0]);
     }
 }

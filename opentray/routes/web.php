@@ -15,16 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 })->name('index');
 
-Route::resource('residents', 'ResidentController');
-
-Route::resource('staff', 'StaffController');
-
-Route::resource('foods', 'FoodController');
-
-Route::resource('facilities', 'FacilityController');
-
-Route::get('print', 'PrintController@index')->name('print');
-
-Route::get('print/cards', 'PrintController@cards')->name('print/cards');
-
 Route::get('auth', 'AuthController@auth')->name('auth');
+
+Route::get('signout', 'AuthController@signout')->name('signout');
+
+Route::get('setPerm', 'AuthController@setPerm')->name('setPerm');
+
+Route::group(['middleware' => 'custAuth'], function () {
+    Route::resource('residents', 'ResidentController');
+
+    Route::resource('staff', 'StaffController');
+
+    Route::resource('foods', 'FoodController');
+
+    Route::resource('facilities', 'FacilityController');
+
+    Route::get('print', 'PrintController@index')->name('print');
+
+    Route::get('print/cards', 'PrintController@cards')->name('print/cards');
+});

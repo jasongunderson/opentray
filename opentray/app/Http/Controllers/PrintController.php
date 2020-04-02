@@ -15,7 +15,6 @@ class PrintController extends Controller
     public function index()
     {
         $residents = Resident::all()->where('active', true);
-        error_log(session()->get('permission', 'guest'));
         return view('print.index', compact('residents'));
     }
 
