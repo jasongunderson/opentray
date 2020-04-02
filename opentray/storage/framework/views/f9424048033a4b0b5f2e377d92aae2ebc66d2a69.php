@@ -24,9 +24,9 @@
 </script>
 <div class="row">
     <div class="col-sm-12">
-        <form method="get" action="<?php echo e(route('print/cards')); ?>">
+        <form method="get" action="<?php echo e(route('print/cards')); ?>" target="_blank">
             <h1 class="display-3">Print
-                <a href="<?php echo e(route('print/cards')); ?>" class="btn btn-primary" dusk="button_print_all">Print All</a>
+                <a href="<?php echo e(route('print/cards')); ?>" target="_blank" class="btn btn-primary" dusk="button_print_all">Print All</a>
                 <div class="form-group d-none">
                     <label for="queue">Queue</label>
                     <input type="text" class="form-control" name="queue" id="formQueue" required />

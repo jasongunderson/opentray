@@ -1,0 +1,16 @@
+table {
+    border-bottom: solid;
+    margin-bottom: 4;
+}
+
+td {
+    width: 250;
+    height: 100;
+    font-size: 24;
+    width: 250;
+    padding-left: 10;
+}
+
+.info {
+    background-color: lightgrey;
+}

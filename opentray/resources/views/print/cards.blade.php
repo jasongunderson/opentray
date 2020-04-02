@@ -1,41 +1,37 @@
-@extends('base')
+<html>
 
-@section('main')
-<div class="row">
-  <div class="col-sm-12">
-    <h1 class="display-3">Cards
-      <a href="{{ route('print') }}" class="btn btn-primary" dusk="button_back">Back</a>
-    </h1>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <td>ID</td>
-          <td>Name</td>
-          <td>Facility</td>
-          <td>Room</td>
-          <td>Dining Area</td>
-          <td>Likes</td>
-          <td>Dislikes</td>
-          <td>Allergies</td>
-          <td>Comments</td>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach($residents as $resident)
-        <tr>
-          <td>{{$resident->id}}</td>
-          <td>{{$resident->fname}} {{$resident->lname}}</td>
-          <td>{{$resident->facility}}</td>
-          <td>{{$resident->room}}</td>
-          <td>{{$resident->dine}}</td>
-          <td>{{$resident->likes}}</td>
-          <td>{{$resident->dislikes}}</td>
-          <td>{{$resident->allergies}}</td>
-          <td>{{$resident->comment}}</td>
-        </tr>
-        @endforeach
-      </tbody>
-    </table>
-    <div>
-    </div>
-    @endsection
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenTray</title>
+  <link href="{{ asset('css/cards.css') }}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  @foreach($residents as $resident)
+  <table>
+    <tr>
+      <td>Name</td>
+      <td class="info">{{$resident->fname}} {{$resident->lname}}</td>
+      <td>Room</td>
+      <td class="info">{{$resident->room}}</td>
+    </tr>
+    <tr>
+      <td>Diet</td>
+      <td class="info">{{$resident->dine}}</td>
+      <td>Preferences</td>
+      <td class="info">{{$resident->likes}}</td>
+    </tr>
+    <td>Dislikes</td>
+    <td class="info">{{$resident->dislikes}}</td>
+    <td>Allergies</td>
+    <td class="info">{{$resident->allergies}}</td>
+    </tr>
+    <tr>
+      <td>Comments</td>
+      <td colspan="3" class="info"> {{$resident->comment}}</td>
+    </tr>
+  </table>
+  @endforeach
+</body>
+
+</html>
