@@ -41,7 +41,7 @@
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-1">
             </div>
             <div class="col-2" style="margin: auto; text-align: right">
                 <?php echo e(session()->get('fname')); ?>
@@ -50,11 +50,11 @@
 
             </div>
             <?php if(!strcmp(session()->get('permission', 'default'), 'default')): ?>
-            <a href="<?php echo e(route('index')); ?>" class="col-1 btn btn-outline-light" style="margin: auto;" dusk="button_signout">
+            <a href="<?php echo e(route('index')); ?>" class="col-2 btn btn-outline-light" style="margin: auto;" dusk="button_signout">
                 Sign In
             </a>
             <?php else: ?>
-            <a href="<?php echo e(route('signout')); ?>" class="col-1 btn btn-outline-light" style="margin: auto;" dusk="button_signout">
+            <a href="<?php echo e(route('signout')); ?>" class="col-2 btn btn-outline-light" style="margin: auto;" dusk="button_signout">
                 Sign Out
             </a>
             <?php endif; ?>
