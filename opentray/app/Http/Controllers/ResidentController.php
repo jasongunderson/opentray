@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Resident;
+use App\Facility;
 use Illuminate\Http\Request;
 
 class ResidentController extends Controller
@@ -15,8 +16,9 @@ class ResidentController extends Controller
     public function index()
     {
         $residents = Resident::all()->where('active', true);
+        $facilities = Facility::all()->where('active', true);
 
-        return view('residents.index', compact('residents'));
+        return view('residents.index', compact('residents'), compact('facilities'));
     }
 
     /**
@@ -26,7 +28,9 @@ class ResidentController extends Controller
      */
     public function create()
     {
-        return view('residents.create');
+        $facilities = Facility::all()->where('active', true);
+
+        return view('residents.create', compact('facilities'));
     }
 
     /**
@@ -85,7 +89,9 @@ class ResidentController extends Controller
     public function edit($id)
     {
         $resident = Resident::find($id);
-        return view('residents.edit', compact('resident'));
+        $facilities = Facility::all()->where('active', true);
+
+        return view('residents.edit', compact('resident'), compact('facilities'));
     }
 
     /**
@@ -118,6 +124,7 @@ class ResidentController extends Controller
         $resident->dislikes = $request->get('dislikes');
         $resident->allergies = $request->get('allergies');
         $resident->comment = $request->get('comment');
+        $resident->facility = $request->get('facility');
         $resident->save();
 
         return redirect('/residents')->with('success', 'Resident Updated');

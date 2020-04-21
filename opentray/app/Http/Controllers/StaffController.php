@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Staff;
+use App\Facility;
 
 class StaffController extends Controller
 {
@@ -16,8 +17,9 @@ class StaffController extends Controller
     public function index()
     {
         $staff = Staff::all()->where('active', true);
+        $facilities = Facility::all()->where('active', true);
 
-        return view('staff.index', compact('staff'));
+        return view('staff.index', compact('staff'), compact('facilities'));
     }
 
     /**
@@ -27,7 +29,9 @@ class StaffController extends Controller
      */
     public function create()
     {
-        return view('staff.create');
+        $facilities = Facility::all()->where('active', true);
+
+        return view('staff.create', compact('facilities'));
     }
 
     /**
@@ -80,7 +84,9 @@ class StaffController extends Controller
     public function edit($id)
     {
         $staff = Staff::find($id);
-        return view('staff.edit', compact('staff'));
+        $facilities = Facility::all()->where('active', true);
+
+        return view('staff.edit', compact('staff'), compact('facilities'));
     }
 
     /**
@@ -95,7 +101,6 @@ class StaffController extends Controller
         $request->validate([
             'fname' => 'required|max:255',
             'lname' => 'required|max:255',
-            'uname' => 'required|max:255|unique:staff',
             'facility' => 'required|integer',
             'permission' => 'required|integer'
         ]);
@@ -104,7 +109,6 @@ class StaffController extends Controller
         $staff->facility = $request->get('facility');
         $staff->fname =  $request->get('fname');
         $staff->lname = $request->get('lname');
-        $staff->uname = $request->get('uname');
         $staff->permission = $request->get('permission');
         $staff->save();
 

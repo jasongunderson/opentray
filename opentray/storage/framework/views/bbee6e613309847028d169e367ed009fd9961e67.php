@@ -24,7 +24,7 @@
         <tr>
           <td><?php echo e($resident->id); ?></td>
           <td><?php echo e($resident->fname); ?> <?php echo e($resident->lname); ?></td>
-          <td><?php echo e($resident->facility); ?></td>
+          <td><?php echo e($facilities[$resident->facility - 1]['name']); ?></td>
           <td><?php echo e($resident->room); ?></td>
           <td><?php echo e($resident->dine); ?></td>
           <td><?php echo e($resident->likes); ?></td>

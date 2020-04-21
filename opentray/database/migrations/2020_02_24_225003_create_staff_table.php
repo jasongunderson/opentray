@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Hash;
+use App\Staff;
 
 class CreateStaffTable extends Migration
 {
@@ -24,6 +26,17 @@ class CreateStaffTable extends Migration
             $table->boolean('active');
             $table->timestamps();
         });
+
+        $staff = new Staff([
+            'facility' => 1,
+            'fname' => 'admin',
+            'lname' => 'admin',
+            'uname' => 'admin',
+            'password' => Hash::make('admin'),
+            'permission' => 0,
+            'active' => true
+        ]);
+        $staff->save();
     }
 
     /**

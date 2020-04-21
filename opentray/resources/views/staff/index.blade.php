@@ -23,7 +23,7 @@
                     <td>{{$employee->id}}</td>
                     <td>{{$employee->fname}} {{$employee->lname}}</td>
                     <td>{{$employee->uname}}</td>
-                    <td>{{$employee->facility}}</td>
+                    <td>{{$facilities[$employee->facility - 1]['name']}}</td>
                     <td>{{$employee->permission}}</td>
                     <td>
                         <a href="{{ route('staff.edit',$employee->id)}}" class="btn btn-primary" dusk="button_edit">Edit</a>

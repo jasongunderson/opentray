@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Facility;
 
 class CreateFacilitiesTable extends Migration
 {
@@ -19,6 +20,12 @@ class CreateFacilitiesTable extends Migration
             $table->boolean('active');
             $table->timestamps();
         });
+
+        $facility = new Facility([
+            'name' => 'default',
+            'active' => true
+        ]);
+        $facility->save();
     }
 
     /**

@@ -6,15 +6,6 @@
         <h1 class="display-3">Update A Food
             <a href="{{ route('foods.index') }}" class="btn btn-primary" dusk="button_back">Back</a>
         </h1>
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div><br />
-        @endif
         <form method="post" action="{{ route('foods.update', $food->id) }}">
             @method('PATCH')
             @csrf

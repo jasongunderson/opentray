@@ -6,15 +6,6 @@
         <h1 class="display-3">Update Resident
             <a href="{{ route('residents.index') }}" class="btn btn-primary" dusk="button_back">Back</a>
         </h1>
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
         <form method="post" action="{{ route('residents.update', $resident->id) }}">
             @method('PATCH')
             @csrf
@@ -27,7 +18,12 @@
             <br>
             <div class="form-inline row">
                 <label for="facility" class="col-1">Facility:</label>
-                <input type="text" class="form-control col-3" name="facility" value="{{ $resident->facility }}" dusk="input_facility" />
+                <select class="form-control col-3" name="facility" value="{{old('facility')}}" dusk="input_facility">
+                    <option value="" selected disabled hidden></option>
+                    @foreach ($facilities->all() as $facility)
+                    <option value={{ $facility['id'] }}>{{$facility['name']}}</option>
+                    @endforeach
+                </select>
                 <label for="room" class="col-1">Room:</label>
                 <input type="text" class="form-control col-3" name="room" value="{{ $resident->room }}" dusk="input_room" />
                 <label for="dine" class="col-1">Dining Area:</label>

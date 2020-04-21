@@ -22,6 +22,7 @@ class AuthController extends Controller
         } else {
             if (Hash::check($password, $employee->password)) {
                 session(['permission' => $employee->permission]);
+                session(['facility' => $employee->facility]);
                 session(['fname' => $employee->fname]);
                 session(['lname' => $employee->lname]);
                 return redirect()->route('print');
@@ -37,8 +38,21 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-    public function setPerm()
+    public function setPerm0()
     {
         session(['permission' => 0]);
+    }
+
+    public function setPerm1()
+    {
+        session(['permission' => 1]);
+    }
+    public function setPerm2()
+    {
+        session(['permission' => 2]);
+    }
+    public function setPerm3()
+    {
+        session(['permission' => 3]);
     }
 }

@@ -3,15 +3,6 @@
     <div class="col-sm-6">
         <h1 class="display-3">Sign In</h1>
         <div>
-            <?php if($errors->any()): ?>
-            <div class="alert alert-danger">
-                <ul>
-                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <li><?php echo e($error); ?></li>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </ul>
-            </div>
-            <?php endif; ?>
             <form method="get" action="<?php echo e(route('auth')); ?>">
                 <?php echo csrf_field(); ?>
                 <div class="form-group">

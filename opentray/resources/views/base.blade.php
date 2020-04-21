@@ -14,21 +14,31 @@
             </div>
             <div class="col-5" style="margin: auto;">
                 <div class="row">
+                    @if (session()->get('permission', 'default') < 3 && strcmp(session()->get('permission', 'default'), 'default'))
                     <a href="{{ route('residents.index') }}" class="col btn btn-outline-light" dusk="button_residents">
                         Residents
                     </a>
+                    @endif
+                    @if (session()->get('permission', 'default') < 2 && strcmp(session()->get('permission', 'default'), 'default'))
                     <a href="{{ route('staff.index') }}" class="col btn btn-outline-light" dusk="button_staff">
                         Staff
                     </a>
+                    @endif
+                    @if (session()->get('permission', 'default') < 2 && strcmp(session()->get('permission', 'default'), 'default'))
                     <a href="{{ route('foods.index') }}" class="col btn btn-outline-light" dusk="button_foods">
                         Foods
                     </a>
+                    @endif
+                    @if (session()->get('permission', 'default') < 1 && strcmp(session()->get('permission', 'default'), 'default'))
                     <a href="{{ route('facilities.index') }}" class="col btn btn-outline-light" dusk="button_facilities">
                         Facilities
                     </a>
+                    @endif
+                    @if (strcmp(session()->get('permission', 'default'), 'default'))
                     <a href="{{ route('print') }}" class="col btn btn-outline-light" dusk="button_print">
                         Print
                     </a>
+                    @endif
                 </div>
             </div>
             <div class="col-2">
@@ -49,6 +59,17 @@
             <div class="col-1">
             </div>
         </div>
+        @if ($errors->any())
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="alert alert-danger col">
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </div>
+            <div class="col-3"></div>
+        </div>
+        @endif
         @yield('main')
     </div>
     <script src="{{ asset('js/app.js') }}" type="text/js"></script>

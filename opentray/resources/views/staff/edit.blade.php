@@ -6,15 +6,6 @@
         <h1 class="display-3">Update An Employee
             <a href="{{ route('staff.index') }}" class="btn btn-primary" dusk="button_back">Back</a>
         </h1>
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div><br />
-        @endif
         <form method="post" action="{{ route('staff.update', $staff->id) }}">
             @method('PATCH')
             @csrf
@@ -27,14 +18,20 @@
             <br>
             <div class="form-inline row">
                 <label for="facility" class="col-1">Facility:</label>
-                <input type="text" class="form-control col-5" name="facility" value="{{ $staff->facility }}" dusk="input_facility" />
+                <select class="form-control col-5" name="facility" value="{{old('facility')}}" dusk="input_facility">
+                    <option value="" selected disabled hidden></option>
+                    @foreach ($facilities->all() as $facility)
+                    <option value={{ $facility['id'] }}>{{$facility['name']}}</option>
+                    @endforeach
+                </select>
                 <label for="permission" class="col-1">Permission:</label>
-                <input type="text" class="form-control col-5" name="permission" value="{{ $staff->permission }}" dusk="input_permission" />
-            </div>
-            <br>
-            <div class="form-inline row">
-                <label for="uname" class="col-1">Username:</label>
-                <input type="text" class="form-control col-5" name="uname" value="{{ $staff->uname }}" dusk="input_uname" />
+                <select class="form-control col-5" name="permission" value={{old('permission')}} dusk="input_permission">
+                    <option value="" selected disabled hidden></option>
+                    <option value=3>3</option>
+                    <option value=2>2</option>
+                    <option value=1>1</option>
+                    <option value=0>0</option>
+                </select>
             </div>
             <br>
             <button type="submit" class="btn btn-primary col" dusk="button_update">Update Employee</button>

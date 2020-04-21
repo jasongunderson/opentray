@@ -26,7 +26,7 @@
         <tr>
           <td>{{$resident->id}}</td>
           <td>{{$resident->fname}} {{$resident->lname}}</td>
-          <td>{{$resident->facility}}</td>
+          <td>{{$facilities[$resident->facility - 1]['name']}}</td>
           <td>{{$resident->room}}</td>
           <td>{{$resident->dine}}</td>
           <td>{{$resident->likes}}</td>
