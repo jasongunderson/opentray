@@ -22,10 +22,12 @@ class FoodTest extends DuskTestCase
     public function test()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('setPerm');
             $browser
                 ->visit('/')
-                ->assertSee('Sign In');
+                ->assertSee('Sign In')
+                ->type('@input_uname', 'admin0')
+                ->type('@input_password', 'password')
+                ->click('@button_signin');
             $browser
                 ->click('@button_foods')
                 ->assertSee('Food');

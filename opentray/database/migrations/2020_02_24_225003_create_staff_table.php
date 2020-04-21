@@ -29,11 +29,44 @@ class CreateStaffTable extends Migration
 
         $staff = new Staff([
             'facility' => 1,
-            'fname' => 'admin',
-            'lname' => 'admin',
-            'uname' => 'admin',
-            'password' => Hash::make('admin'),
+            'fname' => 'admin0',
+            'lname' => 'admin0',
+            'uname' => 'admin0',
+            'password' => Hash::make('password'),
             'permission' => 0,
+            'active' => true
+        ]);
+        $staff->save();
+
+        $staff = new Staff([
+            'facility' => 1,
+            'fname' => 'admin1',
+            'lname' => 'admin1',
+            'uname' => 'admin1',
+            'password' => Hash::make('password'),
+            'permission' => 1,
+            'active' => true
+        ]);
+        $staff->save();
+
+        $staff = new Staff([
+            'facility' => 1,
+            'fname' => 'admin2',
+            'lname' => 'admin2',
+            'uname' => 'admin2',
+            'password' => Hash::make('password'),
+            'permission' => 2,
+            'active' => true
+        ]);
+        $staff->save();
+
+        $staff = new Staff([
+            'facility' => 1,
+            'fname' => 'admin3',
+            'lname' => 'admin3',
+            'uname' => 'admin3',
+            'password' => Hash::make('password'),
+            'permission' => 3,
             'active' => true
         ]);
         $staff->save();

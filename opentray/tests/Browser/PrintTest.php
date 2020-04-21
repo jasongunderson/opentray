@@ -22,10 +22,12 @@ class PrintTest extends DuskTestCase
     public function test()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('setPerm');
             $browser
                 ->visit('/')
-                ->assertSee('Sign In');
+                ->assertSee('Sign In')
+                ->type('@input_uname', 'admin0')
+                ->type('@input_password', 'password')
+                ->click('@button_signin');
             $browser
                 ->click('@button_residents')
                 ->assertSee('Residents');
@@ -35,40 +37,40 @@ class PrintTest extends DuskTestCase
                     ->click('@button_create')
                     ->type('@input_fname', 'fname_PrintTest' . $i)
                     ->type('@input_lname', 'lname_PrintTest' . $i)
-                    ->type('@input_facility', '-' . $i)
+                    ->select('@input_facility', '1')
                     ->type('@input_room', 'room_PrintTest' . $i)
                     ->click('@button_add');
             }
             $browser
                 ->click('@button_print')
                 ->assertSee('Print');
-            $browser
-                ->click('@button_print_all')
-                ->assertSee('Cards');
+            $browser->click('@button_print_all');
+            $window = collect($browser->driver->getWindowHandles())->last();
+            $browser->driver->switchTo()->window($window);
             for ($i = 1; $i < 11; $i++) {
                 $browser
                     ->assertSee('fname_PrintTest' . $i)
                     ->assertSee('lname_PrintTest' . $i)
-                    ->assertSee('-' . $i)
                     ->assertSee('room_PrintTest' . $i);
             }
-            $browser
-                ->click('@button_back')
-                ->assertSee('Print');
+            $browser->driver->close();
+            $window = collect($browser->driver->getWindowHandles())->first();
+            $browser->driver->switchTo()->window($window);
             for ($i = 1; $i < 11; $i += 2) {
                 $browser->click('@button_queue_' . $i);
             }
             $browser->click('@button_print_queue');
+            $window = collect($browser->driver->getWindowHandles())->last();
+            $browser->driver->switchTo()->window($window);
             for ($i = 1; $i < 11; $i += 2) {
                 $browser
                     ->assertSee('fname_PrintTest' . $i)
                     ->assertSee('lname_PrintTest' . $i)
-                    ->assertSee('-' . $i)
                     ->assertSee('room_PrintTest' . $i);
             }
-            $browser
-                ->click('@button_back')
-                ->assertSee('Print');
+            $browser->driver->close();
+            $window = collect($browser->driver->getWindowHandles())->first();
+            $browser->driver->switchTo()->window($window);
             for ($i = 1; $i < 11; $i++) {
                 $browser->click('@button_queue_' . $i);
             }
@@ -76,26 +78,29 @@ class PrintTest extends DuskTestCase
                 $browser->click('@button_unqueue_' . $i);
             }
             $browser->click('@button_print_queue');
+            $window = collect($browser->driver->getWindowHandles())->last();
+            $browser->driver->switchTo()->window($window);
             for ($i = 2; $i < 11; $i += 2) {
                 $browser
                     ->assertSee('fname_PrintTest' . $i)
                     ->assertSee('lname_PrintTest' . $i)
-                    ->assertSee('-' . $i)
                     ->assertSee('room_PrintTest' . $i);
             }
-            $browser
-                ->click('@button_back')
-                ->assertSee('Print');
+            $browser->driver->close();
+            $window = collect($browser->driver->getWindowHandles())->first();
+            $browser->driver->switchTo()->window($window);
             for ($i = 1; $i < 11; $i++) {
                 $browser->click('@button_queue_' . $i);
             }
             $browser
                 ->click('@button_reset')
                 ->click('@button_queue_1')
-                ->click('@button_print_queue')
+                ->click('@button_print_queue');
+            $window = collect($browser->driver->getWindowHandles())->last();
+            $browser->driver->switchTo()->window($window);
+            $browser
                 ->assertSee('fname_PrintTest1')
                 ->assertSee('lname_PrintTest1')
-                ->assertSee('-1')
                 ->assertSee('room_PrintTest1');
 
             //$browser->screenshot('PrintTest');

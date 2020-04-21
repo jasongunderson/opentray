@@ -19,12 +19,14 @@
                 <div class="form-inline row">
                     <label for="facility" class="col-1">Facility:</label>
                     <select class="form-control col-5" name="facility" value="{{old('facility')}}" dusk="input_facility">
+                        <option value="" selected disabled hidden></option>
                         @foreach ($facilities->all() as $facility)
                         <option value={{ $facility['id'] }}>{{$facility['name']}}</option>
                         @endforeach
                     </select>
                     <label for="permission" class="col-1">Permission:</label>
                     <select class="form-control col-5" name="permission" value="{{old('permission')}}" dusk="input_permission">
+                        <option value="" selected disabled hidden></option>
                         <option value=3>3</option>
                         <option value=2>2</option>
                         <option value=1>1</option>

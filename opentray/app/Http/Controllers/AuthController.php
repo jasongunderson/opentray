@@ -37,22 +37,4 @@ class AuthController extends Controller
         session()->flush();
         return redirect('/');
     }
-
-    public function setPerm0()
-    {
-        session(['permission' => 0]);
-    }
-
-    public function setPerm1()
-    {
-        session(['permission' => 1]);
-    }
-    public function setPerm2()
-    {
-        session(['permission' => 2]);
-    }
-    public function setPerm3()
-    {
-        session(['permission' => 3]);
-    }
 }

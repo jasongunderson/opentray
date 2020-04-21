@@ -15,7 +15,7 @@ class custAuth
      */
     public function handle($request, Closure $next)
     {
-        error_log($request->path());
+        //error_log($request->path());
         if (!strcmp(session()->get('permission', 'default'), 'default')) {
             return redirect('/')->withErrors(["Please sign in."]);
         } else if (session()->get('permission', 'default') > 2) {

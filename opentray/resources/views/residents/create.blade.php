@@ -19,10 +19,12 @@
             <div class="form-inline row">
                 <label for="facility" class="col-1">Facility:</label>
                 <select class="form-control col-3" name="facility" value="{{old('facility')}}" dusk="input_facility">
+                    <option value="" selected disabled hidden></option>
                     @foreach ($facilities->all() as $facility)
                     <option value={{ $facility['id'] }}>{{$facility['name']}}</option>
                     @endforeach
                 </select>
+                <option value="" selected disabled hidden></option>
                 <label for="room" class="col-1">Room:</label>
                 <input type="text" class="form-control col-3" name="room" value="{{old('room')}}" dusk="input_room" />
                 <label for="dine" class="col-1">Dining Area:</label>

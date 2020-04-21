@@ -22,11 +22,13 @@ class StaffTest extends DuskTestCase
     public function test()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('setPerm');
             // Visit the home page and assert that they are at the home page.
             $browser
                 ->visit('/')
-                ->assertSee('Sign In');
+                ->assertSee('Sign In')
+                ->type('@input_uname', 'admin0')
+                ->type('@input_password', 'password')
+                ->click('@button_signin');
             // Click the link to the staff page and assert that they visit the staff page.
             $browser
                 ->click('@button_staff')
@@ -49,11 +51,11 @@ class StaffTest extends DuskTestCase
             $browser
                 ->type('@input_lname', 'lname_StaffTest')
                 ->type('@input_uname', 'uname_StaffTest')
-                ->type('@input_facility', '-1')
+                ->select('@input_facility', '1')
                 ->type('@input_password', 'password_StaffTest')
-                ->type('@input_permission', '-2')
+                ->select('@input_permission', '0')
                 ->click('@button_add')
-                ->assertSee('fname_StaffTest', 'lname_StaffTest', 'uname_StaffTest','-1', 'password_StaffTest', '-2');
+                ->assertSee('fname_StaffTest', 'lname_StaffTest', 'uname_StaffTest', '-1', 'password_StaffTest', '-2');
 
             //$browser->screenshot('StaffTest');
         });

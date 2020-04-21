@@ -17,10 +17,12 @@
             <div class="form-inline row">
                 <label for="facility" class="col-1">Facility:</label>
                 <select class="form-control col-3" name="facility" value="<?php echo e(old('facility')); ?>" dusk="input_facility">
+                    <option value="" selected disabled hidden></option>
                     <?php $__currentLoopData = $facilities->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $facility): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <option value=<?php echo e($facility['id']); ?>><?php echo e($facility['name']); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
+                <option value="" selected disabled hidden></option>
                 <label for="room" class="col-1">Room:</label>
                 <input type="text" class="form-control col-3" name="room" value="<?php echo e(old('room')); ?>" dusk="input_room" />
                 <label for="dine" class="col-1">Dining Area:</label>
